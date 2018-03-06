@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<title>Duncan's Just-in-time Donuts</title>
+
+<head>
+  <Script type="text/javascript">
+    function order() {
+      var price = 1.2;
+      var taxrate = 0.17;
+      var noCakeDonut = document.getElementById("cakedonuts").value;
+      console.log(noCakeDonut);
+      var noGlazedDonut = document.getElementById("glazeddonuts").value;
+      var subtotal = (noCakeDonut + noGlazedDonut) * price;
+      var tax = subtotal * taxrate;
+      var total = subtotal + tax;
+      document.getElementById("subtotal").value = "$" + subtotal.toFixed(2);
+      document.getElementById("total").value = "$" + total.toFixed(2);
+      document.getElementById("tax").value = "$" + tax.toFixed(2);
+    }
+    function submit() {
+      form.submit();
+    }
+  </Script>
+</head>
+
+<body>
+  <form action="dounts.php" method="POST">
+    <div>
+      Name:
+      <input type="text" id="customer" onchange="order()">
+    </div>
+    <div>
+      No of cake donut:
+      <input type="text" id="cakedonuts" onchange="order()">
+    </div>
+    <div>
+      No of glazed donut:
+      <input type="text" id="glazeddonuts" onchange="order()">
+    </div>
+    <div>
+      minuties till pickup:
+      <input>
+    </div>
+    <div>
+      subtotal:
+      <input type="text" id="subtotal" onchange="order()">
+    </div>
+    <div>
+      total:
+      <input type="text" id="total" onchange="order()">
+    </div>
+    <div>
+      tax:
+      <input type="text" id="tax" onchange="order()">
+    </div>
+    <div>
+      <input type="button" value="submmit" onclick="submit()">
+    </div>
+  </form>
+</body>
+
+</html>

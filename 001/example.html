@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<title>Weclome</title>
+<head>
+<Script type="text/javascript">
+function touchimg()
+{ var userName=prompt("What is your name", "enter your name here.");
+  if(userName!="")
+ {alert("Good to see you," +userName+".");
+  document.getElementById("normalimg").src="welcome.jpg";
+ }
+}
+</Script>
+</head>
+<body onload="alert("hello，I am you pic")">
+<img id="normalimg" src="norimg.jpg" alt="Server problem" onclick="touchimg()">
+<body>
+</html>
