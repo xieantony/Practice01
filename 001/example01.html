@@ -18,13 +18,17 @@
       document.getElementById("tax").value = "$" + tax.toFixed(2);
     }
     function submit() {
-      form.submit();
+      if (document.getElementById("customer").value == "")
+        alert("We are sorry for that this order can't be submit as there is no name Please input your name ");
+      else if (document.getElementById("tilltime").value = "" || isNaN(document.getElementById("tilltime").value))
+        alert("We are sorry for that this order can't be submit as there is no name Please input your name ");
+      else form.submit();
     }
   </Script>
 </head>
 
 <body>
-  <form action="dounts.php" method="POST">
+  <form>
     <div>
       Name:
       <input type="text" id="customer" onchange="order()">
@@ -39,7 +43,7 @@
     </div>
     <div>
       minuties till pickup:
-      <input>
+      <input id="tilltime">
     </div>
     <div>
       subtotal:
@@ -54,7 +58,7 @@
       <input type="text" id="tax" onchange="order()">
     </div>
     <div>
-      <input type="button" value="submmit" onclick="submit()">
+      <input type="button" value="提交" onclick="submit()">
     </div>
   </form>
 </body>
