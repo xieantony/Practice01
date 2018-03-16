@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <meta charset="utf-8">
+  <title>Vue Practice01 </title>
+</head>
+
+<body>
+  <div id="app01">
+    {{message}}
+  </div>
+  <div id="app02">
+    <span v-bind:title='message01'>
+      鼠标悬停查看动态
+    </span>
+  </div>
+  <div id='Aa03'>
+    <p v-if='seen'>You see me now!</p>
+  </div>
+  <div id='app04'>
+    <ol>
+      <li v-for='todo in todos'>
+        {{todo.text}}
+      </li>
+    </ol>
+  </div>
+  <div id='app05'>
+    <p>
+      {{message05}}
+      <input v-model='message05'>
+    </p>
+  </div>
+  <div id="app06">
+    <ol>
+      <todo-item 
+      v-for='item in groceryList' 
+      v-bind:todo='item' 
+      v-bind:key='item.id'>
+      </todo-item>
+    </ol>
+  </div>
+  <script>
+    var Aa01 = new Vue({
+      el: "#app01",
+      data: {
+        message: 'Hi Ja'
+      }
+    })
+    var Aa02 = new Vue({
+      el: '#app02',
+      data: {
+        message01: 'page loading' + new Date().toLocaleString()
+      }
+    })
+    var Aa03 = new Vue({
+      el: '#Aa03',
+      data: {
+        seen: true
+      }
+    })
+    var Aa04 = new Vue({
+      el: "#app04",
+      data: {
+        todos: [
+          { text: '学习JS' },
+          { text: 'Study Vue.js' },
+          { text: 'new project' }
+        ]
+      }
+    })
+    var Aa05 = new Vue({
+      el: "#app05",
+      data: {
+        message05: ''
+      }
+    })
+    Vue.component('todo-item', {
+      props: ['todo'],
+      template: '<li>{{todo.text}}</li>'
+    }
+    )
+    var Aa06 = new Vue({
+      el: "#app06",
+      data: {
+        groceryList: [
+          { id: 0, text: '蔬菜' },
+          { id: 1, text: '奶酪' },
+          { id: 2, text: '随便点菜' }
+        ]
+      }
+    })
+
+  </script>
+
+</body>
+
+</html>
