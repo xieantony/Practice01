@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<HTml>
+
+<HEAD>
+  <meta chaset='uft-8'>
+  <title>Vue-viedue</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</HEAD>
+
+<body>
+  <div id='app'>
+    <h1>MY todos {{todoCount}}</h1>
+    <ul>
+      <li v-bind:class={'computed':todo.computed}
+          v-for='(todo,index) in todos'>
+        {{todo.title}}
+        <button v-on:click='deleteToDo(index)'>Remove</button>
+      </li>
+    </ul>
+    <form v-on:submit.prevent='addToDo(newToDo)'>
+      <div>
+        <input type="text" placeholder='add a new todo' v-model='newToDo.title'>
+      </div>
+      <div>
+        <button type="submit">Todo</button>
+      </div>
+    </form>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      message: 'hello woold',
+      todos: [{
+        id: 1, title: 'learn Vuejs',computed:false
+      }],
+      newToDo: { id: null, title: '' }
+    },
+    computed:{
+      todoCount(){
+        return this.todos.length
+      }
+    },
+
+    methods: {
+      addToDo(newToDo) {
+        this.todos.push(newToDo)
+        this.newToDo = { id: null, title: '' }
+      },
+      deleteToDo(index) {
+        this.todos.splice(index, 1)
+      }
+    }
+  })
+</script>
+
+</HTml>

@@ -1,18 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<title>Weclome</title>
 <head>
-<Script type="text/javascript">
-function touchimg()
-{ var userName=prompt("What is your name", "enter your name here.");
-  if(userName!="")
- {alert("Good to see you," +userName+".");
-  document.getElementById("normalimg").src="welcome.jpg";
- }
-}
-</Script>
+  <meta charset="utf-8">
+  <title>Backbone Demo</title>
 </head>
-<body onload="alert("hello，I am you pic")">
-<img id="normalimg" src="norimg.jpg" alt="Server problem" onclick="touchimg()">
 <body>
+
+<h1>Backbone Routing Demo</h1>
+
+  <ul id="menu">
+    <li><a href="#">Index</a></li>
+    <li><a href="#show/1">Show</a></li>
+    <li><a href="#download/1">Download</a></li>
+    <li><a href="#search/1">Search</a></li>
+    <li><a href="#other">Other</a></li>
+  </ul>
+
+<script src="js/underscore.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/main.js"></script>
+
+</body>
 </html>

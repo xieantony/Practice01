@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
-
 <head>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
   <meta charset="utf-8">
   <title>Vue Practice01 </title>
 </head>
-
 <body>
   <div id="app01">
     {{message}}
@@ -34,12 +34,23 @@
   </div>
   <div id="app06">
     <ol>
-      <todo-item 
-      v-for='item in groceryList' 
-      v-bind:todo='item' 
-      v-bind:key='item.id'>
+      <todo-item v-for='item in groceryList' v-bind:todo='item' v-bind:key='item.id'>
       </todo-item>
     </ol>
+  </div>
+  <div id='app07'>
+    <p> 原始值为： {{message07}} </p>
+    <p> 转换后值为：{{newmessage}}</p>
+  </div>
+  <div id='app08'>
+    {{fullname}}
+  </div>
+  <div id="watch01">
+    <p>
+      问一个答案是yse/no的问题：
+      <input type="text" v-model='question'>
+    </p>
+    <p>{{answer}}</p>
   </div>
   <script>
     var Aa01 = new Vue({
@@ -91,7 +102,62 @@
         ]
       }
     })
-
+    var Aa07 = new Vue({
+      el: '#app07',
+      data: {
+        message07: 'hello'
+      },
+      computed: {
+        newmessage: function () {
+          return this.message07.split('').reverse().join('')
+        }
+      }
+    })
+    var vm = new Vue({
+      el: '#app08',
+      data: {
+        firstname: "Foo",
+        lastname: 'Bar'
+      },
+      computed: {
+        fullname: function () {
+          return this.firstname + " " + this.lastname
+        }
+      }
+    })
+    //watchtest:
+    var watchExample = new Vue({
+      el: '#watch01',
+      data: {
+        question: '',
+        answer: '先提问，我才可以回答'
+      },
+      watch: {
+        question: function (newQuestion, oldQuestion) {
+          this.answer = '等待输入停止。。。'
+          this.getAnswer()
+        }
+      },
+      methods: {
+        getAnswer: _.debounce(function () {
+          if (this.question.indexOf('?') === -1) {
+            this.answer = '问题需要包含问号？'
+            return
+          }
+          this.answer = '思考中。。。'
+          var vm = this
+          axios.get('https://yesno.wtf/api')
+            .then(function (response) {
+              vm.answer = _.capitalize(response.data.answer)
+            })
+            .catch(function (error) {
+              vm.answer = "错误，API无法处理" + error
+            })
+        },
+          500
+        )
+      }
+    })
   </script>
 
 </body>
