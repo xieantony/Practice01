@@ -69,21 +69,111 @@
             <input type="radio" name='name01' value="option2">选项2
         </label>
     </div>
-<form action="" role="form">
-    <div class='form-group'>
-        <label for="name">SelectList</label>
-        <select name="" id="" multiple class='form-control'>
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
-            <option value="">4</option>
-        </select>
-        <div>
-            <p >emailto</p>
+    <form action="" role="form">
+        <div class='form-group'>
+            <label for="name">SelectList</label>
+            <select name="" id="" multiple class='form-control'>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+            </select>
+            <div>
+                <p>emailto</p>
+            </div>
         </div>
-        
+    </form>
+    <!--下拉菜单显示-->
+    <div class="dropdown">
+        <button type="button" class='btn dropdown-toggle' id='dropdownMenu01' data-toggle='dropdown'>主题
+            <span class="caret"></span>
+            <!--caret显示下拉标号小三角形-->
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu01">
+            <li role="presentation">
+                <a href="" role="menuitem" tabindex="1"> Java</a>
+            </li>
+            <li role="presentation">
+                <a href="" role='menuitem' tabindex="2"> DataDig</a>
+            </li>
+            <li role="presentation">
+                <a href="" role='menuitem' tabindex="3"> Web</a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation">
+                <a href="">About</a>
+            </li>
+        </ul>
     </div>
-</form>
+    </br>
+    <!--按钮组-->
+    <div class="btn-group btn-group-xs">
+        <button type="button" class="btn btn-default-">No.1</button>
+        <button type="button" class="btn btn-default-">No.1</button>
+        <button type="button" class="btn btn-default-">No.1</button>
+
+    </div>
+    <!--按钮下拉菜单组合-->
+    <div class="btn-group btn-group-lg">
+        <button type="button" class="btn btn-default">默认</button>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle='dropdown'>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <a href=""> 功能</a>
+            </li>
+            <li>
+                <a href="">功能二</a>
+            </li>
+            <li>
+                <a href="">功能三</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href=""> 功能三</a>
+            </li>
+        </ul>
+    </div>
+    <!--导航栏 nav nav-tabs水平栏；nav nav-pills nav-stacked垂直栏 ‘active’表示当前默认的栏，
+        可以不用div，自带div-->
+
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="">Home</a>
+        </li>
+        <li>
+            <a href="">Pump</a>
+        </li>
+        <li>
+            <a href="">Tower</a>
+        </li>
+        <li>
+            <a href="">Exchanger</a>
+        </li>
+    </ul>
+    </br>
+    <ul class="nav nav-stacked">
+        <li class="active">
+            <a href="">Home</a>
+        </li>
+        <li>
+            <a href="">Pump</a>
+        </li>
+        <li>
+            <a href="">Tower</a>
+        </li>
+        <li>
+            <a href="">Exchanger</a>
+        </li>
+    </ul>
+    <!--面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="">Papers</a></li>
+        <li><a href="">2013</a></li>
+        <li><a href="">十二月</a></li>
+    </ol>
+
 </body>
 
 </html>
