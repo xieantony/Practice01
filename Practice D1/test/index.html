@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<HTML>
+
+<head>
+  <meta charset="utf-8">
+  <title>练习</title>
+  <style>
+    .blockD1 {
+      width: 40%;
+      border：2px；
+      padding:10px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid red
+    }
+
+    table {
+      width: 100% 
+    }
+td{text-align: center;height: 25px}
+  </style>
+</head>
+
+<BODY>
+  <div class="blockD1">
+    <h1 style="text-align:center;color:red;border-style:solid">练习 </h1>
+    <hr>
+    <img src="http://www.qlmoney.com/uploadfile/2016/0513/201605130952
+22936.png" alt="练习不断" width="100%">
+    <form action="">
+      <table>
+        <tr><th>Item</th></tr>
+        <tr>
+          <td style=color:red align:center>
+            物流：
+            <input type="text" name="Stream">
+            <select name="Unit">
+              <option value="massflow">kg/h </option>
+              <option value="molarflow">mol/h</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            温度：
+            <input type="text" name="T">
+            <select name="Unit">
+              <option value="1">℃ </option>
+              <option value="1">K</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            压力：
+            <input type="text" name="P">
+            <select name="Unit">
+              <option value="1">MpaG </option>
+              <option value="1">Bar</option>
+            </select>
+
+          </td>
+        </tr>
+      </table>
+      <button type="submit">提交</button>
+      <button type="reset">重置</buttontype>
+      </button>
+    </form>
+
+    <p>点击按钮执行 <em>displayDate()</em> 函数.</p>
+    <button onclick="displayDate()">点这里</button>
+    <script>
+    function displayDate(){
+      document.getElementById("T").innerHTML=Date();
+    }
+    </script>
+    <p id="T">  </p>
+
+    <div onmouseover="m(1)" onmouseout="mOut(1)"
+     style="background-color:#D94A38;width:120px;height:20px;
+     padding:40px;">点  我</div>
+    <script>
+    function m(obj){
+      obj.innerHTML="Thank You"
+    }
+    function mOut(obj){obj.innerHTML="点我"    }
+    </script>
+
+
+
+
+
+</body>
+
+</html>
+
+</BODY>
+
+</HTML>

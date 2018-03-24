@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <title>计时开始</title>
+  <script>
+    var i = 0
+    var t
+    function timeCountBG() {
+      document.getElementById("txt").value = i;
+      i++;
+      t = setTimeout("timeCountBG()", 1000);
+    }
+    function timeCountSP() {
+      clearTimeout(t)
+    }
+      </script>
+</head>
+
+<body>
+  <input type="button" value="add" onclick="">
+      <div>
+      <button onclick="timeCountBG()">Time start</button>
+      <input type="text" id="txt">
+      <button onclick="timeCountSP()">Stop</button>
+    </div>
+  </div>
+
+</html>
